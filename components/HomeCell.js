@@ -95,7 +95,13 @@ class HomeCell extends Component {
 					style={styles.imageItem}
 					onPress={() => {
 						this.props.navigation.navigate('Detail', {
-							image : this.props.image
+							image       : this.props.image,
+							name        : this.props.name,
+							shelterName : this.props.shelterName,
+							likes       : this.props.likes,
+							interests   : this.props.interests,
+							comments    : this.props.comments,
+							backing     : this.props.backing
 						});
 					}}
 				>

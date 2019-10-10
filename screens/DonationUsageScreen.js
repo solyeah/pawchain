@@ -14,18 +14,6 @@ export default class DonationUsageScreen extends Component {
 		const params = navigation.state.params || {};
 
 		return {
-			headerLeft       : (
-				<TouchableOpacity
-					style={{ padding: 5, paddingLeft: 15, marginRight: 10 }}
-				>
-					<Ionicons
-						name={'ios-arrow-back'}
-						size={45}
-						color="tomato"
-						style={{ textAlign: 'center' }}
-					/>
-				</TouchableOpacity>
-			),
 			headerRight      : <View style={{ padding: 5, paddingLeft: 15 }} />,
 			title            : '기부금 사용 내역',
 			headerTitleStyle : {

@@ -8,6 +8,7 @@ import TabBarIcon from '../components/TabBarIcon';
 import Settings from '../screens/Settings';
 import DonationScreen from '../screens/DonationScreen';
 import InterestScreen from '../screens/InterestScreen';
+import EditProfileScreen from '../screens/EditProfileScreen';
 
 /* 1. CONFIG */
 const config = Platform.select({
@@ -25,9 +26,10 @@ const defaultNavigationOptions = {
 /* 2. Navigator */
 const SettingsStack = createStackNavigator(
 	{
-		Settings  : Settings,
-		Donations : DonationScreen,
-		Interests : InterestScreen
+		Settings    : Settings,
+		Donations   : DonationScreen,
+		Interests   : InterestScreen,
+		EditProfile : EditProfileScreen
 	},
 	config
 );

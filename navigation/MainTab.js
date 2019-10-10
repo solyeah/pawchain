@@ -8,9 +8,12 @@ import {
 
 import TabBarIcon from '../components/TabBarIcon';
 
+import LoginScreen from '../screens/LoginScreen';
+
 import HomeStack from './HomeStackNavigator';
 import NewPostStack from './NewPostStackNavigator';
 import SettingsStack from './SettingsStackNavigator';
+import DonationUsageScreen from '../screens/DonationUsageScreen';
 
 const config = Platform.select({
 	web     : { headerMode: 'screen' },
@@ -24,10 +27,28 @@ const DefaultNavigationOptions = {
 	}
 };
 
+const DonationUsageStack = createStackNavigator(
+	{
+		DonationUsage : DonationUsageScreen
+	},
+	config
+);
+
+DonationUsageStack.navigationOptions = {
+	tabBarLabel : 'Donations',
+	tabBarIcon  : ({ focused }) => (
+		<TabBarIcon
+			focused={focused}
+			name={Platform.OS === 'ios' ? 'ios-cash' : 'ios-cash'}
+		/>
+	)
+};
+
 const MainTab = createBottomTabNavigator(
 	{
 		Home     : HomeStack,
 		NewPost  : NewPostStack,
+		Donation : DonationUsageStack,
 		Settings : SettingsStack
 	},
 	{
@@ -40,11 +61,11 @@ const MainTab = createBottomTabNavigator(
 
 const RootStack = createStackNavigator(
 	{
-		Main : {
+		Main  : {
 			screen : MainTab
-		}
+		},
 		//
-		//
+		Login : LoginScreen
 	},
 	{
 		mode       : 'modal',

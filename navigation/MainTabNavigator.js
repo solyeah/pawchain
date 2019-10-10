@@ -48,30 +48,41 @@ HomeStack.navigationOptions = {
 
 HomeStack.path = '';
 
-const LinksStack = createStackNavigator(
+// const LinksStack = createStackNavigator(
+// 	{
+// 		Links : LinksScreen
+// 	},
+// 	config
+// );
+
+// LinksStack.navigationOptions = {
+// 	tabBarLabel : 'Links',
+// 	tabBarIcon  : ({ focused }) => (
+// 		<TabBarIcon
+// 			focused={focused}
+// 			name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'}
+// 		/>
+// 	)
+// };
+
+// LinksStack.path = '';
+
+const DonationUsageStack = createStackNavigator(
 	{
-		Links : LinksScreen
+		DonationUsage : DonationUsageScreen
 	},
 	config
 );
 
-LinksStack.navigationOptions = {
-	tabBarLabel : 'Links',
+DonationUsageStack.navigationOptions = {
+	tabBarLabel : 'Donations',
 	tabBarIcon  : ({ focused }) => (
 		<TabBarIcon
 			focused={focused}
-			name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'}
+			name={Platform.OS === 'ios' ? 'ios-cash' : 'ios-cash'}
 		/>
 	)
 };
-
-LinksStack.path = '';
-
-const DonationUsageStack = createStackNavigator({
-	// Donations : PostingScreen
-	// Donations : DonationUsageScreen
-	Donations : ShelterProfileScreen
-});
 
 const SettingsStack = createStackNavigator(
 	{

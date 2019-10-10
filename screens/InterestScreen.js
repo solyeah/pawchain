@@ -56,6 +56,20 @@ export default class InterestScreen extends Component {
 			comments   : [ mockData ]
 		};
 	}
+	static navigationOptions = ({ navigation }) => {
+		// const params = navigation.state.params || {};
+		//제목추가
+		return {
+			headerRight      : <View style={{ padding: 5, paddingLeft: 15 }} />,
+			title            : '관심동물',
+			headerTitleStyle : {
+				textAlign : 'center',
+				flex      : 1,
+				fontSize  : 22
+			}
+		};
+	};
+
 	renderItem = ({ item }) => {
 		return <InterestCell {...item} />;
 	};

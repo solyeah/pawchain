@@ -28,12 +28,39 @@ export default class DetailScreen extends Component {
 	constructor(props) {
 		super(props);
 		const image = this.props.navigation.getParam('image');
+		const name = this.props.navigation.getParam('name');
+		const shelterName = this.props.navigation.getParam('shelterName');
+		const likes = this.props.navigation.getParam('likes');
+		const interests = this.props.navigation.getParam('interests');
+		const comments = this.props.navigation.getParam('comments');
+		const backing = this.props.navigation.getParam('backing');
 		this.state = {
-			refreshing : false,
+			refreshing  : false,
 			image,
-			comments   : [ mockData ]
+			name,
+			shelterName,
+			likes,
+			interests,
+			comments,
+			backing
+
+			// comments    : [ mockData ]
 		};
 	}
+	static navigationOptions = ({ navigation }) => {
+		// const params = navigation.state.params || {};
+		//제목추가
+		return {
+			headerRight      : <View style={{ padding: 5, paddingLeft: 15 }} />,
+			title            : navigation.getParam('name'),
+			headerTitleStyle : {
+				textAlign : 'center',
+				flex      : 1,
+				fontSize  : 22
+			}
+		};
+	};
+
 	renderItem = ({ item }) => {
 		return <CommentCell {...item} />;
 	};
@@ -45,27 +72,27 @@ export default class DetailScreen extends Component {
 					source={{ uri: this.state.image }}
 					style={styles.image}
 				/>
-				<Text style={styles.titleText}>행복보호소</Text>
+				<Text style={styles.titleText}>{this.state.shelterName}</Text>
 				<View style={styles.itemBar}>
 					<IconText
 						iconName={'ios-heart-empty'}
-						children={'101 좋아요'}
+						children={this.state.likes + '좋아요'}
 						type={true}
 					/>
 					<IconText
 						iconName={'ios-paw'}
-						children={'34 관심'}
+						children={this.state.interests + '관심'}
 						type={true}
 					/>
 					<IconText
 						iconName={'comment-outline'}
 						type={false}
-						children={'34 댓글'}
+						children={this.state.comments + '댓글'}
 					/>
 					<IconText
 						iconName={'bone'}
 						type={false}
-						children={'32 후원'}
+						children={this.state.backing + '후원'}
 					/>
 				</View>
 				<ScrollView style={styles.contentScroll}>
