@@ -11,7 +11,7 @@ import {
 import CommentCell from '../components/CommentCell';
 import IconText from '../components/IconText';
 import { FlatList } from 'react-native-gesture-handler';
-const mockData = [
+const commentMockData = [
 	{
 		id      : 'happy',
 		comment : '안쓰러워요ㅠㅠ',
@@ -21,6 +21,14 @@ const mockData = [
 		id      : 'lov_dog',
 		comment : '후원하고 갑니다...',
 		key     : 2
+	}
+];
+
+const detailMockData = [
+	{
+		id     : '1',
+		detail :
+			'PawChain 덕분에 이 강아지가 안락사를 면할 수 있었습니다! 정말 감사드려요!! 앞으로 많은 후원과 좋아요 부탁드려요! 관심동물에 등록해주세요!!!'
 	}
 ];
 
@@ -34,17 +42,20 @@ export default class DetailScreen extends Component {
 		const interests = this.props.navigation.getParam('interests');
 		const comments = this.props.navigation.getParam('comments');
 		const backing = this.props.navigation.getParam('backing');
+		const abandonDate = this.props.navigation.getParam('abandonDate');
 		this.state = {
-			refreshing  : false,
+			refreshing     : false,
 			image,
 			name,
 			shelterName,
 			likes,
 			interests,
 			comments,
-			backing
+			backing,
+			abandonDate,
 
 			// comments    : [ mockData ]
+			detailMockData : [ detailMockData.detail ]
 		};
 	}
 	static navigationOptions = ({ navigation }) => {
@@ -97,21 +108,12 @@ export default class DetailScreen extends Component {
 				</View>
 				<ScrollView style={styles.contentScroll}>
 					<Text style={styles.content}>
-						절미 인절미 짱절미{'\n'}
-						절미절미 인절미 짱절미{'\n'}
-						절미절미절미 인절미 짱절미{'\n'}
-						절미절미절미절미 인절미 짱절미{'\n'}
-						절미절미절미절미절미 인절미 짱절미{'\n'}
-						절미 인절미 짱절미{'\n'}
-						절미절미 인절미 짱절미{'\n'}
-						절미절미절미 인절미 짱절미{'\n'}
-						절미절미절미절미 인절미 짱절미{'\n'}
-						절미절미절미절미절미 인절미 짱절미{'\n'}
-						절미 인절미 짱절미{'\n'}
-						절미절미 인절미 짱절미{'\n'}
-						절미절미절미 인절미 짱절미{'\n'}
-						절미절미절미절미 인절미 짱절미{'\n'}
-						절미절미절미절미절미 인절미 짱절미{'\n'}
+						{this.state.name}는 {this.state.abandonDate} 에 유기되어 저희
+						보호소에서 보호중입니다.
+						{'\n'}
+						'PawChain 덕분에 이 강아지가 안락사를 면할 수 있었습니다! {'\n'}
+						정말 감사드려요!! 앞으로 많은 후원과 좋아요 부탁드려요!{'\n'}
+						관심동물에 등록해주세요!!!'
 						{'\n'}
 						입양문의 : 행복보호소 (02-xxx-xxxx)
 					</Text>
@@ -122,7 +124,7 @@ export default class DetailScreen extends Component {
 				<ScrollView style={styles.commentScroll}>
 					<FlatList
 						style={styles.commentlist}
-						data={mockData}
+						data={commentMockData}
 						renderItem={this.renderItem}
 						onRefresh={this.refreshData}
 						refreshing={this.state.refreshing}
@@ -150,6 +152,7 @@ const styles = StyleSheet.create({
 		marginLeft : 15
 	},
 	content       : {
+		fontSize   : 15,
 		marginLeft : 15
 	},
 	itemBar       : {

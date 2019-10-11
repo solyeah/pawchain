@@ -158,6 +158,46 @@ export default class DonationUsageScreen extends Component {
 							<Text style={styles.contents2}>200,000원</Text>
 						</View>
 					</View>
+					<View style={styles.container2}>
+						<Text style={styles.contents2}>
+							월튼 펫 마켓 (2019년 8월 25일)
+						</Text>
+						<View style={styles.right}>
+							<Text style={styles.contents2}>170,000원</Text>
+						</View>
+					</View>
+					<View style={styles.container2}>
+						<Text style={styles.contents2}>
+							은수네 사료 (2019년 8월 23일)
+						</Text>
+						<View style={styles.right}>
+							<Text style={styles.contents2}>75,000원</Text>
+						</View>
+					</View>
+					<View style={styles.container2}>
+						<Text style={styles.contents2}>
+							재우네 펫샵 (2019년 8월 20일)
+						</Text>
+						<View style={styles.right}>
+							<Text style={styles.contents2}>60,000원</Text>
+						</View>
+					</View>
+					<View style={styles.container2}>
+						<Text style={styles.contents2}>
+							보호소 운영기금 (2019년 8월 20일)
+						</Text>
+						<View style={styles.right}>
+							<Text style={styles.contents2}>100,000원</Text>
+						</View>
+					</View>
+					<View style={styles.container2}>
+						<Text style={styles.contents2}>
+							은하수 펫 스파 (2019년 8월 17일)
+						</Text>
+						<View style={styles.right}>
+							<Text style={styles.contents2}>70,000원</Text>
+						</View>
+					</View>
 				</ScrollView>
 			</View>
 		);

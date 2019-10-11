@@ -101,7 +101,8 @@ class HomeCell extends Component {
 							likes       : this.props.likes,
 							interests   : this.props.interests,
 							comments    : this.props.comments,
-							backing     : this.props.backing
+							backing     : this.props.backing,
+							abandonDate : this.props.abandonDate
 						});
 					}}
 				>

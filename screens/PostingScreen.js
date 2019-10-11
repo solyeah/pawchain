@@ -175,7 +175,7 @@ export default class PostingScreen extends Component {
 							}}
 						>
 							<TouchableOpacity
-								onPress={() => alert('글이 계시되었습니다')}
+								onPress={() => alert('글이 게시되었습니다')}
 							>
 								<RoundButton
 									iconName={'ios-add'}
